@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.vscode-test/
+*.vsix
+
+# Source icon asset — large file, excluded from repo
+yaml-path-image.png
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json

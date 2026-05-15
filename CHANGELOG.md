@@ -1,0 +1,22 @@
+# Changelog
+
+All notable changes to YAML Path Copy are documented here.
+
+## [0.2.0] — Stable
+
+### Added
+- Initial stable marketplace release
+- Full dotted-path resolution for nested YAML keys
+- Keybinding: `Cmd+Alt+Y` (Mac) / `Ctrl+Alt+Y` (Win/Linux)
+- Command Palette: `Copy YAML Path`
+- Right-click context menu entry
+- Skips blank lines and comment lines when resolving parent keys
+- Handles values containing colons (URLs, timestamps)
+
+## [0.1.0] — Pre-release
+
+### Added
+- Core `getYamlPath` pure function with 16 unit tests
+- esbuild bundling — single 1 KB output file
+- ESLint + Mocha CI via GitHub Actions
+- `vscode:prepublish` gated on lint + unit tests passing

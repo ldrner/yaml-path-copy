@@ -1,0 +1,12 @@
+src/**
+test/**
+node_modules/**
+.github/**
+.vscodeignore
+.vscode-test.mjs
+eslint.config.js
+*.vsix
+*.png.backup
+package-lock.json
+extension.js
+yaml-path-image.png

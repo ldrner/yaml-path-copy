@@ -1,0 +1,95 @@
+{
+  "name": "yaml-path-copy",
+  "displayName": "YAML Path Copy",
+  "description": "Copy the full dotted key path from any YAML file to clipboard — one keystroke (Cmd+Alt+Y)",
+  "version": "0.0.1",
+  "publisher": "local",
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/local/yaml-path-copy"
+  },
+  "bugs": {
+    "url": "https://github.com/local/yaml-path-copy/issues"
+  },
+  "homepage": "https://github.com/local/yaml-path-copy#readme",
+  "license": "MIT",
+  "pricing": "Free",
+  "sponsor": {
+    "url": "https://github.com/sponsors/local"
+  },
+  "categories": [
+    "Other",
+    "Keymaps"
+  ],
+  "keywords": [
+    "yaml",
+    "yml",
+    "path",
+    "copy",
+    "key",
+    "dotted",
+    "locale",
+    "i18n",
+    "l10n",
+    "rails",
+    "translation",
+    "clipboard",
+    "navigate",
+    "breadcrumb",
+    "config",
+    "devtools",
+    "productivity",
+    "editor",
+    "snippet",
+    "utility"
+  ],
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "activationEvents": [
+    "onLanguage:yaml"
+  ],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run lint && npm run test:unit && npm run build",
+    "build": "esbuild extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --minify",
+    "watch": "esbuild extension.js --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node --sourcemap --watch",
+    "lint": "eslint .",
+    "test:unit": "mocha test/unit/**/*.test.js",
+    "test:integration": "vscode-test",
+    "test": "npm run test:unit && npm run test:integration"
+  },
+  "devDependencies": {
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.28.0",
+    "eslint": "^10.3.0",
+    "mocha": "^10.0.0"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "yaml-path-copy.copyPath",
+        "title": "Copy YAML Path"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "yaml-path-copy.copyPath",
+        "key": "ctrl+alt+y",
+        "mac": "cmd+alt+y",
+        "when": "editorLangId == yaml"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "yaml-path-copy.copyPath",
+          "when": "editorLangId == yaml",
+          "group": "9_cutcopypaste@1"
+        }
+      ]
+    }
+  }
+}
