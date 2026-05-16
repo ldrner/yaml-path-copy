@@ -2,7 +2,7 @@
   "name": "yaml-path-copy",
   "displayName": "YAML Path Copy",
   "description": "Copy the full dotted key path from any YAML file to clipboard — one keystroke (Cmd+Alt+Y)",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "publisher": "bbrmn550",
   "icon": "icon.png",
   "repository": {
