@@ -60,8 +60,8 @@
     "test:unit": "mocha test/unit/**/*.test.js",
     "test:integration": "vscode-test",
     "test": "npm run test:unit && npm run test:integration",
-    "preversion": "npm run lint && npm run test:unit",
-    "version": "node scripts/update-changelog.js && git add CHANGELOG.md",
+    "preversion": "npm run lint && npm run test:unit && node scripts/check-changelog-next.js",
+    "version": "git add CHANGELOG.md",
     "postversion": "git push && git push --tags"
   },
   "devDependencies": {
