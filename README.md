@@ -2,9 +2,9 @@
 
 > One keystroke to copy the full dotted key path from any YAML file to your clipboard.
 
-[![CI](https://github.com/local/yaml-path-copy/actions/workflows/ci.yml/badge.svg)](https://github.com/local/yaml-path-copy/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/visual-studio-marketplace/v/local.yaml-path-copy)](https://marketplace.visualstudio.com/items?itemName=local.yaml-path-copy)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/local.yaml-path-copy)](https://marketplace.visualstudio.com/items?itemName=local.yaml-path-copy)
+[![CI](https://github.com/ldrner/yaml-path-copy/actions/workflows/ci.yml/badge.svg)](https://github.com/ldrner/yaml-path-copy/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/bbrmn550.yaml-path-copy)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/bbrmn550.yaml-path-copy)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---

@@ -3,20 +3,20 @@
   "displayName": "YAML Path Copy",
   "description": "Copy the full dotted key path from any YAML file to clipboard — one keystroke (Cmd+Alt+Y)",
   "version": "0.0.1",
-  "publisher": "local",
+  "publisher": "bbrmn550",
   "icon": "icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/local/yaml-path-copy"
+    "url": "https://github.com/ldrner/yaml-path-copy"
   },
   "bugs": {
-    "url": "https://github.com/local/yaml-path-copy/issues"
+    "url": "https://github.com/ldrner/yaml-path-copy/issues"
   },
-  "homepage": "https://github.com/local/yaml-path-copy#readme",
+  "homepage": "https://github.com/ldrner/yaml-path-copy#readme",
   "license": "MIT",
   "pricing": "Free",
   "sponsor": {
-    "url": "https://github.com/sponsors/local"
+    "url": "https://github.com/sponsors/ldrner"
   },
   "categories": [
     "Other",
