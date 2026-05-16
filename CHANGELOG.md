@@ -2,6 +2,11 @@
 
 All notable changes to YAML Path Copy are documented here.
 
+## [0.2.2] — 2026-05-16 (Stable)
+
+### Changed
+- README: demo GIF added, CI badge fixed, marketplace badges switched to PNG
+
 ## [0.2.1] — 2026-05-16 (Stable)
 
 ### Fixed
