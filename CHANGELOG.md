@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] — 2026-05-16 (Stable)
+
+### Changed
+- <!-- describe changes -->
+
+
 All notable changes to YAML Path Copy are documented here.
 
 ## [0.3.0] — 2026-05-16 (Pre-release)
