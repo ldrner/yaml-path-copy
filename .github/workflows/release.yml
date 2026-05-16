@@ -48,7 +48,12 @@ jobs:
             echo "Publishing STABLE (minor=$MINOR)"
           fi
 
-      - name: Package extension
+      - name: Package pre-release
+        if: steps.release_type.outputs.pre_release == 'true'
+        run: npx @vscode/vsce package --pre-release
+
+      - name: Package stable
+        if: steps.release_type.outputs.pre_release == 'false'
         run: npx @vscode/vsce package
 
       - name: Publish pre-release
