@@ -43,4 +43,18 @@ function getYamlPath(text, lineNumber) {
   return path.join('.');
 }
 
-module.exports = { getYamlPath };
+/**
+ * @param {string} path  dotted YAML path
+ * @param {string[]} prefixes  prefixes to strip (e.g. ["en"])
+ * @returns {string}  path with first matching prefix removed, or original path
+ */
+function stripPrefixes(path, prefixes) {
+  if (!prefixes || prefixes.length === 0) {return path;}
+  for (const prefix of prefixes) {
+    if (path === prefix) {return path;}
+    if (path.startsWith(prefix + '.')) {return path.slice(prefix.length + 1);}
+  }
+  return path;
+}
+
+module.exports = { getYamlPath, stripPrefixes };

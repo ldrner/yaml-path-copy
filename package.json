@@ -2,7 +2,7 @@
   "name": "yaml-path-copy",
   "displayName": "YAML Path Copy",
   "description": "Copy the full dotted key path from any YAML file to clipboard — one keystroke (Cmd+Alt+Y)",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "publisher": "bbrmn550",
   "icon": "icon.png",
   "repository": {
@@ -86,6 +86,17 @@
         "when": "editorLangId == yaml"
       }
     ],
+    "configuration": {
+      "title": "YAML Path Copy",
+      "properties": {
+        "yaml-path-copy.excludePrefixes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "markdownDescription": "Prefixes to strip from the copied YAML path. E.g. `[\"en\"]` strips the leading `en.` — useful in i18n workflows where the locale key is implicit."
+        }
+      }
+    },
     "menus": {
       "editor/context": [
         {

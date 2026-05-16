@@ -106,6 +106,35 @@ feature_flags:
 
 ---
 
+## Configuration
+
+### Exclude prefixes
+
+In i18n workflows the locale key is often implicit — your code calls `t('base.action')`, not `t('en.base.action')`. Configure `yaml-path-copy.excludePrefixes` to strip those leading segments automatically.
+
+**`settings.json`:**
+
+```json
+{
+  "yaml-path-copy.excludePrefixes": ["en"]
+}
+```
+
+With this set, placing your cursor on `server_error` below:
+
+```yaml
+en:
+  api:
+    problems:
+      server_error: 'Oops, something went wrong'
+```
+
+…copies **`api.problems.server_error`** instead of `en.api.problems.server_error`.
+
+Multiple prefixes are supported (e.g. `["en", "ar"]`). The first matching prefix is stripped.
+
+---
+
 ## Rebinding the shortcut
 
 `Cmd+K Cmd+S` → search `yaml-path-copy.copyPath`, or add to `keybindings.json`:
@@ -138,6 +167,9 @@ feature_flags:
 ## Release Notes
 
 See full [CHANGELOG](CHANGELOG.md).
+
+### 0.3.0
+- `excludePrefixes` setting for stripping locale/namespace prefixes before copying
 
 ### 0.2.1
 - CI fixes: Node.js 24, publish from vsix, GitHub release permissions

@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const { getYamlPath } = require('../../src/yaml-path');
+const { getYamlPath, stripPrefixes } = require('../../src/yaml-path');
 
 function yaml(...lines) {
   return lines.join('\n');
@@ -90,6 +90,44 @@ describe('getYamlPath', () => {
         '    key: value',
       );
       assert.strictEqual(getYamlPath(text, 4), 'en.api.key');
+    });
+  });
+
+  describe('stripPrefixes', () => {
+    it('strips single matching prefix', () => {
+      assert.strictEqual(stripPrefixes('en.base.action', ['en']), 'base.action');
+    });
+
+    it('strips first matching prefix from list', () => {
+      assert.strictEqual(stripPrefixes('ar.base.action', ['en', 'ar']), 'base.action');
+    });
+
+    it('returns path unchanged when no prefix matches', () => {
+      assert.strictEqual(stripPrefixes('en.base.action', ['ar']), 'en.base.action');
+    });
+
+    it('returns path unchanged when prefixes list is empty', () => {
+      assert.strictEqual(stripPrefixes('en.base.action', []), 'en.base.action');
+    });
+
+    it('does not strip when path equals prefix exactly', () => {
+      assert.strictEqual(stripPrefixes('en', ['en']), 'en');
+    });
+
+    it('does not do partial segment match', () => {
+      assert.strictEqual(stripPrefixes('english.key', ['en']), 'english.key');
+    });
+
+    it('returns path unchanged when prefixes is null', () => {
+      assert.strictEqual(stripPrefixes('en.base.action', null), 'en.base.action');
+    });
+
+    it('strips multi-segment prefix', () => {
+      assert.strictEqual(stripPrefixes('en.shared.base.action', ['en.shared']), 'base.action');
+    });
+
+    it('strips only first segment when path starts with duplicate prefix', () => {
+      assert.strictEqual(stripPrefixes('en.en.some.key', ['en']), 'en.some.key');
     });
   });
 
