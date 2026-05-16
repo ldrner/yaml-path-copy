@@ -45,7 +45,7 @@
     "utility"
   ],
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.63.0"
   },
   "activationEvents": [
     "onLanguage:yaml"

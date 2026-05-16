@@ -151,7 +151,7 @@ Multiple prefixes are supported (e.g. `["en", "ar"]`). The first matching prefix
 
 ## Requirements
 
-- VS Code `1.60.0` or newer
+- VS Code `1.63.0` or newer
 - No runtime dependencies
 
 ---
