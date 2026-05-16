@@ -3,15 +3,17 @@
 > One keystroke to copy the full dotted key path from any YAML file to your clipboard.
 
 [![CI](https://github.com/ldrner/yaml-path-copy/actions/workflows/ci.yml/badge.svg)](https://github.com/ldrner/yaml-path-copy/actions/workflows/ci.yml)
-[![Version](https://img.shields.io/visual-studio-marketplace/v/bbrmn550.yaml-path-copy)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy)
-[![Installs](https://img.shields.io/visual-studio-marketplace/i/bbrmn550.yaml-path-copy)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Version](https://vsmarketplacebadges.dev/version/bbrmn550.yaml-path-copy.png)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy)
+[![Installs](https://vsmarketplacebadges.dev/installs/bbrmn550.yaml-path-copy.png)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy)
+[![Rating](https://vsmarketplacebadges.dev/rating/bbrmn550.yaml-path-copy.png)](https://marketplace.visualstudio.com/items?itemName=bbrmn550.yaml-path-copy&ssr=false#review-details)
+[![VS Code](https://raster.shields.io/badge/VS_Code-%3E%3D1.60-007ACC?logo=visualstudiocode)](https://code.visualstudio.com)
+[![License: MIT](https://raster.shields.io/badge/license-MIT-blue)](LICENSE)
 
 ---
 
 ## What it does
 
-Place your cursor on any key in a YAML file and press **`Cmd+Alt+Y`** (Mac) / **`Ctrl+Alt+Y`** (Windows/Linux). The full dotted path to that key is copied to your clipboard instantly.
+Place your cursor on any YAML key and press **`Cmd+Alt+Y`** (Mac) / **`Ctrl+Alt+Y`** (Win/Linux). The full dotted path is copied to clipboard instantly — no config, no setup.
 
 ```yaml
 en:
@@ -20,18 +22,24 @@ en:
       server_error: 'Oops, something went wrong'  # ← cursor here
 ```
 
-Result in clipboard: **`en.api.problems.server_error`**
+Clipboard: **`en.api.problems.server_error`**
+
+---
+
+## Demo
+
+![YAML Path Copy demo](https://raw.githubusercontent.com/ldrner/yaml-path-copy/main/images/demo.gif)
 
 ---
 
 ## Features
 
-- **Instant path copy** — resolves full dotted path from any nesting depth
-- **Three trigger options** — keybinding, Command Palette, or right-click context menu
-- **Smart parsing** — skips blank lines, comment lines, and array items correctly
-- **Colon-safe** — handles values containing colons (URLs, timestamps) without breaking
-- **Zero config** — works out of the box on all `.yml` and `.yaml` files
-- **Lightweight** — single bundled file, activates only when a YAML file is open
+- **Instant** — resolves full dotted path at any nesting depth
+- **Three triggers** — keybinding, Command Palette, right-click context menu
+- **Smart** — skips blank lines, comments, array items when resolving parents
+- **Colon-safe** — handles values with colons (URLs, timestamps)
+- **Zero config** — works on all `.yml` / `.yaml` files out of the box
+- **Tiny** — 1 KB bundled, activates only when a YAML file is open
 
 ---
 
@@ -40,23 +48,23 @@ Result in clipboard: **`en.api.problems.server_error`**
 ### Keybinding
 
 | Platform | Shortcut |
-|----------|----------|
+|---|---|
 | macOS | `Cmd + Alt + Y` |
 | Windows / Linux | `Ctrl + Alt + Y` |
 
 ### Command Palette
 
-`Cmd+Shift+P` → **Copy YAML Path**
+`Cmd+Shift+P` → type **Copy YAML Path** → Enter
 
 ### Context Menu
 
-Right-click anywhere in a YAML file → **Copy YAML Path**
+Right-click in any YAML file → **Copy YAML Path**
 
 ---
 
 ## Examples
 
-### Rails / Ruby on Rails i18n locales
+### Rails i18n locales
 
 ```yaml
 en:
@@ -66,10 +74,11 @@ en:
         user:
           attributes:
             email:
-              taken: 'has already been taken'  # → en.activerecord.errors.models.user.attributes.email.taken
+              taken: 'has already been taken'
+              # → en.activerecord.errors.models.user.attributes.email.taken
 ```
 
-### Kubernetes / Docker Compose config
+### Kubernetes / Docker Compose
 
 ```yaml
 services:
@@ -86,13 +95,20 @@ jobs:
     runs-on: ubuntu-latest  # → jobs.build.runs-on
 ```
 
+### Any nested config
+
+```yaml
+feature_flags:
+  payments:
+    stripe:
+      webhook_secret: sk_live_...  # → feature_flags.payments.stripe.webhook_secret
+```
+
 ---
 
 ## Rebinding the shortcut
 
-Open **Keyboard Shortcuts** (`Cmd+K Cmd+S`) and search for `yaml-path-copy.copyPath`.
-
-Or add directly to `keybindings.json`:
+`Cmd+K Cmd+S` → search `yaml-path-copy.copyPath`, or add to `keybindings.json`:
 
 ```json
 {
@@ -107,42 +123,43 @@ Or add directly to `keybindings.json`:
 ## Requirements
 
 - VS Code `1.60.0` or newer
-- No other extensions required
+- No runtime dependencies
 
 ---
 
 ## Known Limitations
 
-- **Flow-style YAML** (`{key: value}` on one line) is not supported — path resolves to `null`
-- **Multi-document YAML** (`---` separator) treats each document independently
-- **Anchors and aliases** (`&anchor`, `*alias`) are not resolved — the alias key name is copied, not the anchor's path
+- **Flow-style YAML** (`{key: value}` inline) — path resolves to `null`
+- **Multi-document YAML** (`---` separator) — each document treated independently
+- **Anchors / aliases** (`&anchor`, `*alias`) — alias key name copied, not anchor's path
 
 ---
 
 ## Release Notes
 
-See [CHANGELOG.md](CHANGELOG.md) for full history.
+See full [CHANGELOG](CHANGELOG.md).
 
-### 0.2.0 — Stable
-- Initial stable release
+### 0.2.1
+- CI fixes: Node.js 24, publish from vsix, GitHub release permissions
+- Version bump automation with CHANGELOG guard
 
-### 0.1.0 — Pre-release
-- Core path resolution
-- Keybinding, Command Palette, context menu
-- esbuild bundling
+### 0.2.0
+- Initial stable marketplace release
 
 ---
 
 ## Contributing
 
-1. Fork the repo
-2. `npm install`
-3. `npm run watch` — rebuild on save
-4. Press `F5` in VS Code to open Extension Development Host
-5. `npm test` — unit + integration tests
-6. `npm run lint` — ESLint check
+```bash
+git clone https://github.com/ldrner/yaml-path-copy
+npm install
+npm run watch      # rebuild on save
+# Press F5 in VS Code → Extension Development Host opens
+npm run test:unit  # unit tests
+npm run lint       # ESLint
+```
 
-Pull requests welcome. Open an issue first for large changes.
+Open an issue before large changes.
 
 ---
 

@@ -2,6 +2,14 @@
 
 All notable changes to YAML Path Copy are documented here.
 
+## [0.2.1] — 2026-05-16 (Stable)
+
+### Fixed
+- CI: publish from packaged vsix to avoid double prepublish run
+- CI: add `permissions: contents: write` for GitHub release creation
+- CI: upgrade to Node.js 24
+- Bump version scripts + CHANGELOG guard added
+
 ## [0.2.0] — Stable
 
 ### Added
