@@ -1,12 +1,13 @@
 # Changelog
 
-## [0.4.0] — 2026-05-16 (Stable)
-
-### Changed
-- <!-- describe changes -->
-
+# Changelog
 
 All notable changes to YAML Path Copy are documented here.
+
+## [0.4.0] — 2026-05-16 (Stable)
+
+### Added
+- `yaml-path-copy.excludePrefixes` setting: strip leading path segments before copying. E.g. `["en"]` turns `en.base.action` → `base.action` — useful in i18n workflows where the locale key is implicit.
 
 ## [0.3.0] — 2026-05-16 (Pre-release)
 
